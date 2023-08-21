@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="forms.css" rel="stylesheet" />
+    <title>Registration Form</title>
+
+    <script>
+      function submit() {
+        alert("Form Sumbited");
+      }
+      function validateForm() {
+        var uid = document.forms["registrationForm"]["Uid"].value;
+        var password = document.forms["registrationForm"]["Password"].value;
+        var name = document.forms["registrationForm"]["Name"].value;
+        var address = document.forms["registrationForm"]["Address"].value;
+        var country = document.forms["registrationForm"]["dropdown"].value;
+        var zipCode = document.forms["registrationForm"]["ZipCode"].value;
+        var email = document.forms["registrationForm"]["Email"].value;
+        var gender = document.querySelector('input[name="Gender"]:checked');
+        var language = document.querySelector('input[name="lang"]:checked');
+        var about = document.forms["registrationForm"]["About"].value;
+
+        if (uid < 6 || uid > 12) {
+          alert("Invalid User ID.");
+          return false;
+        }
+
+        if (password < 6 || password > 12) {
+          alert("Invalid Password.");
+          return false;
+        }
+
+        if (name == "") {
+          alert("Please enter Name.");
+          return false;
+        }
+
+        if (country == "Select") {
+          alert("Please select Country.");
+          return false;
+        }
+
+        if (zipCode.length < 6 || zipCode.length > 6) {
+          alert("Invalid Zip Code.");
+          return false;
+        }
+
+        if (email === "") {
+          alert("Please enter Email.");
+          return false;
+        }
+        var counter = 0;
+        for (var i = 0; i < email.length; i++) {
+          if (email[i] === "@") {
+            counter = 1;
+          }
+        }
+        if (counter === 0) {
+          alert("Email is missing '@'.");
+          return false;
+        }
+
+        if (!gender) {
+          alert("Please select Gender.");
+          return false;
+        }
+
+        if (!language) {
+          alert("Please select Language.");
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1 class="title">Registration Form</h1>
+    <div class="content">
+      <h2 class="h1">Enter The Following Details To Register</h2>
+      <div class="c1">
+        <form name="registrationForm" action="javascript:submit()" method="get|post">
+          <label for="Uid">User id :</label>
+          <input class="m" type="text" id="Uid" name="Uid" /><br />
+          <label for="Password">Password :</label>
+          <input class="m" type="text" id="Password" name="Password" />
+          <br />
+          <label for="Name">Name :</label>
+          <input class="m" type="text" id="Name" name="Name" />
+          <br />
+          <label for="Address">Address :</label>
+          <input class="m" type="text" id="Address" name="Address" />
+          <br />
+
+          <label for="Name">Country :</label>
+          <select class="m" id="dropdown" name="dropdown">
+            <option value="Select" selected>(Please Select Country)</option>
+            <option value="India">India</option>
+            <option value="Dubai">Dubai</option>
+            <option value="England">England</option>
+            <option value="Germany">Germany</option>
+          </select>
+          <br />
+
+          <label for="ZipCode">Zip Code :</label>
+          <input class="m" type="number" id="ZipCode" name="ZipCode" />
+          <br />
+
+          <label for="Email">Email :</label>
+          <input class="m" type="text" id="Email" name="Email" />
+          <br />
+
+          <label for="Gender">Gender :</label>
+          <input class="m" type="radio" id="male" name="Gender" value="Male" />
+          Male
+          <input
+            class="m"
+            type="radio"
+            id="female"
+            name="Gender"
+            value="Female"
+          />Female
+          <br />
+
+          <label for="lang">Language :</label>
+          <input
+            class="m"
+            type="checkbox"
+            id="english"
+            name="lang"
+            value="English"
+          />
+          English
+          <input
+            class="m"
+            type="checkbox"
+            id="nonEnglish"
+            name="lang"
+            value="Non-English"
+          />Non-English
+          <br />
+
+          <label for="About">About :</label><br />
+          <textarea
+            style="margin-top: 10px"
+            rows="5"
+            cols="50"
+            id="About"
+            name="About"
+          ></textarea>
+          <br />
+          <button class="back1" type="submit" onclick="return validateForm()">
+            Submit
+          </button>
+          <button
+            onclick="window.location.href = 'Rgform.html';"
+            class="back1"
+            type="reset"
+          >
+            Reset
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

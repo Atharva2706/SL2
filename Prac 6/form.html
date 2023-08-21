@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="forms.css" rel="stylesheet" />
+    <title>Registration Form</title>
+  </head>
+
+
+  <script>
+      function submit() {
+        alert("Form Submitted");
+      }
+
+      function validateForm() {
+        var name = document.forms["registrationForm"]["Name"].value;
+        var email = document.forms["registrationForm"]["Email"].value;
+        var mobile = document.forms["registrationForm"]["Mobile"].value;
+        var dob = document.forms["registrationForm"]["DOB"].value;
+        var xMarks = document.forms["registrationForm"]["XMarks"].value;
+        var xiiMarks = document.forms["registrationForm"]["XIIMarks"].value;
+        var paymentMethod =
+          document.forms["registrationForm"]["PaymentMethod"].value;
+        var cardNo = document.forms["registrationForm"]["CardNo"].value;
+        var upiId = document.forms["registrationForm"]["UPIId"].value;
+
+        if (!name.match(/^[A-Za-z\s]+$/)) {
+          alert(
+            "Invalid Name. Name must not have digits or special characters."
+          );
+          return false;
+        } else if (
+          !email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)
+        ) {
+          alert("Invalid Email Address.");
+          return false;
+        } else if (!mobile.match(/^[7-9]\d{9}$/)) {
+          alert(
+            "Invalid Mobile Number. Mobile number must be 10 digits and start with 7, 8, or 9."
+          );
+          return false;
+        }
+
+        var today = new Date();
+        var birthDate = new Date(dob);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        if (age <= 18 || age >= 25) {
+          alert("Invalid Date of Birth. Age must be between 18 and 25.");
+          return false;
+        } else if (xMarks === "" || xiiMarks === "") {
+          alert("X and XII marks are mandatory.");
+          return false;
+        }
+
+        if (paymentMethod === "card" && !cardNo.match(/^\d{16}$/)) {
+          alert("Invalid Card Number. Card number must be a 16-digit number.");
+          return false;
+        } else if (paymentMethod === "upi" && !upiId.match(/^\w+@\w+$/)) {
+          alert(
+            "Invalid UPI ID. UPI ID must be in the format 'example@domain'."
+          );
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1 class="title">Registration Form</h1>
+    <div class="content">
+      <h2 class="h1">Enter The Following Details To Register</h2>
+      <div class="c1">
+        <form
+          name="registrationForm"
+          action="javascript:submit()"
+          method="get|post"
+        >
+          <h3>Personal Information</h3>
+          <label for="Name">Name:</label>
+          <input class="m" type="text" id="Name" name="Name" /><br />
+
+          <label for="Email">Email:</label>
+          <input class="m" type="text" id="Email" name="Email" /><br />
+
+          <label for="Mobile">Mobile Number:</label>
+          <input class="m" type="text" id="Mobile" name="Mobile" /><br />
+
+          <div class="form-section">
+            <label for="DOB">Date of Birth:</label>
+            <input class="m" type="date" id="DOB" name="DOB" required />
+          </div>
+
+          <h3>Educational Information</h3>
+          <label for="XMarks">X Marks:</label>
+          <input class="m" type="text" id="XMarks" name="XMarks" /><br />
+
+          <label for="XIIMarks">XII Marks:</label>
+          <input class="m" type="text" id="XIIMarks" name="XIIMarks" /><br />
+
+          <label for="College">College:</label>
+          <input class="m" type="text" id="College" name="College" /><br />
+
+          <label for="University">University:</label>
+          <input
+            class="m"
+            type="text"
+            id="University"
+            name="University"
+          /><br />
+
+          <h3>Payment Details</h3>
+          <div class="form-section">
+            <label for="PaymentMethod">Payment Meathod:</label>
+            <select id="PaymentMethod" name="PaymentMethod" required>
+              <option value="">Select Payment Method</option>
+              <option value="card">Card</option>
+              <option value="upi">UPI</option>
+            </select>
+          </div>
+          <br />
+
+          <label for="CardNo">Card Number:</label>
+          <input class="m" type="text" id="CardNo" name="CardNo" /><br />
+
+          <label for="UPIId">UPI ID:</label>
+          <input class="m" type="text" id="UPIId" name="UPIId" /><br />
+
+          <button class="back1" type="submit" onclick="return validateForm()">
+            Submit
+          </button>
+          <button
+            onclick="window.location.href = 'form.html';"
+            class="back1"
+            type="reset"
+          >
+            Reset
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

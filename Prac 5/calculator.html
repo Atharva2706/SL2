@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <h2>Calculator</h2>
+    <div class="cal">
+      <textarea rows="5" cols="25" name="space" class="txt"> </textarea>
+      <button href="#">7</button>
+      <button href="#">8</button>
+      <button href="#">9</button>
+      <button href="#" class="op" class="key--operator" data-action="divide">
+        /
+      </button>
+      <button href="#">4</button>
+      <button href="#">5</button>
+      <button href="#">6</button>
+      <button href="#" class="op" class="key--operator" data-action="multiply">
+        *
+      </button>
+      <button href="#">1</button>
+      <button href="#">2</button>
+      <button href="#">3</button>
+      <button href="#" class="op" class="key--operator" data-action="subtract">
+        -
+      </button>
+      <button
+        href="#"
+        style="background-color: rgb(218, 11, 11)"
+        data-action="clear"
+      >
+        AC
+      </button>
+      <button href="#">0</button>
+      <button
+        href="#"
+        style="background-color: rgb(218, 11, 11)"
+        class="key--equal"
+        data-action="calculate"
+      >
+        =
+      </button>
+      <button href="#" class="op" class="key--operator" data-action="add">
+        +
+      </button>
+    </div>
+  </body>
+</html>
+
+<script>
+  // Get the calculator container element
+  const calculator = document.querySelector(".cal");
+
+  // Get the textarea element where the input and output will be displayed
+  const textarea = calculator.querySelector(".txt");
+
+  // Get all the calculator buttons
+  const buttons = calculator.querySelectorAll("button");
+
+  // Add click event listeners to the buttons
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const buttonValue = button.textContent;
+      switch (button.dataset.action) {
+        case "clear":
+          textarea.value = ""; // Clear the textarea
+          break;
+        case "calculate":
+          calculate(); // Perform the calculation
+          break;
+        default:
+          // Append the button value to the textarea
+          textarea.value += buttonValue;
+      }
+    });
+  });
+
+  // Function to perform the calculation
+  function calculate() {
+    const expression = textarea.value;
+    const result = eval(expression); // Using eval() to evaluate the expression
+
+    // Display the result in the textarea
+    textarea.value = result;
+  }
+</script>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chart Examples</title>
+    <style>
+      .chartContainer {
+        height: 300px;
+        width: 100%;
+        margin-bottom: 150px;
+      }
+      h1 {
+        text-align: center;
+        
+      }
+    </style>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </head>
+  <body>
+    <h1>Chart Examples</h1>
+
+    <div id="columnChartContainer" class="chartContainer"></div>
+    <div id="lineChartContainer" class="chartContainer"></div>
+    <div id="splineChartContainer" class="chartContainer"></div>
+    <div id="areaChartContainer" class="chartContainer"></div>
+    <div id="splineAreaChartContainer" class="chartContainer"></div>
+    <div id="barChartContainer" class="chartContainer"></div>
+    <div id="pieChartContainer" class="chartContainer"></div>
+    <div id="doughnutChartContainer" class="chartContainer"></div>
+    <div id="pyramidChartContainer" class="chartContainer"></div>
+
+    <script>
+      // Column Chart
+      var columnChart = new CanvasJS.Chart("columnChartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Column Chart",
+        },
+        data: [
+          {
+            type: "column",
+            dataPoints: [
+              { label: "Apple", y: 10 },
+              { label: "Orange", y: 15 },
+              { label: "Banana", y: 25 },
+              { label: "Mango", y: 30 },
+              { label: "Grape", y: 28 },
+            ],
+          },
+        ],
+      });
+      columnChart.render();
+
+      // Line Chart
+      var lineChart = new CanvasJS.Chart("lineChartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Line Chart",
+        },
+        data: [
+          {
+            type: "line",
+            dataPoints: [
+              { label: "January", y: 10 },
+              { label: "February", y: 15 },
+              { label: "March", y: 25 },
+              { label: "April", y: 30 },
+              { label: "May", y: 28 },
+            ],
+          },
+        ],
+      });
+      lineChart.render();
+
+      // Spline Chart
+      var splineChart = new CanvasJS.Chart("splineChartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Spline Chart",
+        },
+        data: [
+          {
+            type: "spline",
+            dataPoints: [
+              { label: "Red", y: 10 },
+              { label: "Green", y: 15 },
+              { label: "Blue", y: 25 },
+              { label: "Yellow", y: 30 },
+              { label: "Orange", y: 28 },
+            ],
+          },
+        ],
+      });
+      splineChart.render();
+
+      // Area Chart
+      var areaChart = new CanvasJS.Chart("areaChartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Area Chart",
+        },
+        data: [
+          {
+            type: "area",
+            dataPoints: [
+              { label: "Monday", y: 10 },
+              { label: "Tuesday", y: 15 },
+              { label: "Wednesday", y: 25 },
+              { label: "Thursday", y: 30 },
+              { label: "Friday", y: 28 },
+            ],
+          },
+        ],
+      });
+      areaChart.render();
+
+      // Spline Area Chart
+      var splineAreaChart = new CanvasJS.Chart("splineAreaChartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Spline Area Chart",
+        },
+        data: [
+          {
+            type: "splineArea",
+            dataPoints: [
+              { label: "A", y: 10 },
+              { label: "B", y: 15 },
+              { label: "C", y: 25 },
+              { label: "D", y: 30 },
+              { label: "E", y: 28 },
+            ],
+          },
+        ],
+      });
+      splineAreaChart.render();
+
+      // Bar Chart
+      var barChart = new CanvasJS.Chart("barChartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Bar Chart",
+        },
+        data: [
+          {
+            type: "bar",
+            dataPoints: [
+              { label: "January", y: 10 },
+              { label: "February", y: 15 },
+              { label: "March", y: 25 },
+              { label: "April", y: 30 },
+              { label: "May", y: 28 },
+            ],
+          },
+        ],
+      });
+      barChart.render();
+
+      // Pie Chart
+      var pieChart = new CanvasJS.Chart("pieChartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Pie Chart",
+        },
+        data: [
+          {
+            type: "pie",
+            dataPoints: [
+              { label: "Chrome", y: 68.85 },
+              { label: "Firefox", y: 9.9 },
+              { label: "Edge", y: 7.3 },
+              { label: "Safari", y: 5.6 },
+              { label: "Others", y: 8.35 },
+            ],
+          },
+        ],
+      });
+      pieChart.render();
+
+      // Doughnut Chart
+      var doughnutChart = new CanvasJS.Chart("doughnutChartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Doughnut Chart",
+        },
+        data: [
+          {
+            type: "doughnut",
+            dataPoints: [
+              { label: "Apple", y: 40 },
+              { label: "Orange", y: 15 },
+              { label: "Banana", y: 25 },
+              { label: "Mango", y: 30 },
+              { label: "Grape", y: 28 },
+            ],
+          },
+        ],
+      });
+      doughnutChart.render();
+
+      // Pyramid Chart
+      var pyramidChart = new CanvasJS.Chart("pyramidChartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Pyramid Chart",
+        },
+        data: [
+          {
+            type: "pyramid",
+            dataPoints: [
+              { label: "Apple", y: 10 },
+              { label: "Orange", y: 15 },
+              { label: "Banana", y: 25 },
+              { label: "Mango", y: 30 },
+              { label: "Grape", y: 28 },
+            ],
+          },
+        ],
+      });
+      pyramidChart.render();
+    </script>
+  </body>
+</html>
